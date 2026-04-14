@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JGM Property Repair, LLC</title>
 
+<meta name="description" content="Cabinet staining and refinishing in Las Vegas">
+
 <style>
 body {
   margin:0;
@@ -19,9 +21,6 @@ header {
   padding:60px 20px;
   text-align:center;
 }
-
-h1 {font-size:28px;}
-h2 {margin-top:40px;}
 
 .container {padding:20px;}
 
@@ -39,7 +38,6 @@ h2 {margin-top:40px;}
   width:100%;
   max-width:300px;
   margin:10px;
-  border-radius:8px;
 }
 
 .colors div {
@@ -47,7 +45,6 @@ h2 {margin-top:40px;}
   width:60px;
   height:60px;
   margin:5px;
-  border-radius:5px;
 }
 
 .sticky-bar {
@@ -63,7 +60,6 @@ h2 {margin-top:40px;}
 .sticky-bar a {
   color:white;
   text-decoration:none;
-  font-weight:bold;
 }
 
 .popup {
@@ -79,46 +75,34 @@ h2 {margin-top:40px;}
 .popup-content {
   background:white;
   padding:20px;
-  border-radius:10px;
   width:90%;
   max-width:400px;
 }
 
-input, textarea, select {
+input, textarea {
   width:100%;
   padding:10px;
   margin:5px 0;
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- NETLIFY FORM DETECTION (VERY IMPORTANT) -->
+<form name="contact" netlify hidden>
+<input type="text" name="name">
+<input type="email" name="email">
+</form>
+
 <header>
   <h1>JGM Property Repair, LLC</h1>
   <p>Custom Cabinet Staining & Refinishing Experts</p>
   <a href="#" class="btn" onclick="openPopup()">Get Free Estimate</a>
-  <a href="tel:15055142158" class="btn">Call Now</a>
+  <a href="tel:17252500454" class="btn">Call Now</a>
 </header>
 
 <div class="container">
-
-<h2>Quote Calculator</h2>
-<select id="size">
-  <option>Small Kitchen</option>
-  <option>Medium Kitchen</option>
-  <option>Large Kitchen</option>
-</select>
-
-<select id="service">
-  <option>Staining</option>
-  <option>Refinishing</option>
-  <option>Custom Cabinets</option>
-</select>
-
-<button class="btn" onclick="calculate()">Estimate</button>
-<p id="result"></p>
 
 <h2>Services</h2>
 <ul>
@@ -126,7 +110,7 @@ input, textarea, select {
 <li>Refinishing</li>
 <li>Color Matching</li>
 <li>Custom Cabinets</li>
-<li>Woodwork</li>
+<li>Wood Restoration</li>
 </ul>
 
 <h2>Gallery</h2>
@@ -144,21 +128,24 @@ input, textarea, select {
 <div style="background:#8B4513"></div>
 </div>
 
-<h2>Reviews</h2>
-<p>⭐⭐⭐⭐⭐ “Amazing cabinet transformation!”</p>
-<p>⭐⭐⭐⭐⭐ “Very professional work!”</p>
-
 <h2>Map</h2>
-<iframe src="https://maps.google.com/maps?q=USA&t=&z=13&ie=UTF8&iwloc=&output=embed"
+<iframe src="https://maps.google.com/maps?q=Las%20Vegas&z=13&output=embed"
 width="100%" height="300"></iframe>
 
 <h2>Contact</h2>
-<form>
-<input placeholder="Name">
-<input placeholder="Phone">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button class="btn">Submit</button>
+
+<p><a href="tel:17252500454">📞 +1 725-250-0454</a></p>
+<p><a href="mailto:jgmpropertyrepairllc@gmail.com">📧 Email Us</a></p>
+
+<form name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+<input type="hidden" name="form-name" value="contact">
+
+<input type="text" name="name" placeholder="Name" required>
+<input type="tel" name="phone" placeholder="Phone" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Message"></textarea>
+
+<button class="btn" type="submit">Submit</button>
 </form>
 
 <h2>Hours</h2>
@@ -168,33 +155,33 @@ width="100%" height="300"></iframe>
 </div>
 
 <div class="sticky-bar">
-<a href="tel:15055142158">Call</a>
+<a href="tel:17252500454">Call</a>
 <a href="#" onclick="openPopup()">Quote</a>
 </div>
 
 <div class="popup" id="popup">
 <div class="popup-content">
+
 <h3>Get Free Estimate</h3>
-<input placeholder="Name">
-<input placeholder="Phone">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button class="btn" onclick="closePopup()">Submit</button>
+
+<form name="popup-contact" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="popup-contact">
+
+<input type="text" name="name" placeholder="Name" required>
+<input type="tel" name="phone" placeholder="Phone" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Message"></textarea>
+
+<button class="btn" type="submit">Submit</button>
+
+</form>
+
 </div>
 </div>
 
 <script>
-function calculate() {
-  let price = "$1,000 - $3,000";
-  document.getElementById("result").innerText = "Estimated: " + price;
-}
-
 function openPopup() {
   document.getElementById("popup").style.display = "flex";
-}
-
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
 }
 </script>
 
